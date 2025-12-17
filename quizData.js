@@ -178,7 +178,7 @@ const quizData = [
     "part": 2,
     "question": "",
     "image": "images/20.png",
-    "options": ["全票比半票貴兩百元。", "晚上八點可以看電影。", "中午以前的電影有兩場。"],
+    "options": ["美美要大華帶禮物來。", "美美要請小芳到餐廳吃飯。", "小芳請大華一起到美美的家。"],   
     "answer": "C",
     "remark": ""
   },
@@ -187,7 +187,7 @@ const quizData = [
     "part": 2,
     "question": "",
     "image": "images/21.png",
-    "options": ["美美要大華帶禮物來。", "美美要請小芳到餐廳吃飯。", "小芳請大華一起到美美的家。"],
+    "options": ["全票比半票貴兩百元。", "晚上八點可以看電影。", "中午以前的電影有兩場。"],
     "answer": "A",
     "remark": ""
   },
