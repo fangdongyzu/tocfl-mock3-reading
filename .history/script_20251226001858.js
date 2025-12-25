@@ -158,11 +158,8 @@ function showAllQuestions(questions) {
 
 function createStandardQuestion(question) {
     // Logic: Only show the image INSIDE the card if it exists AND it is NOT Part 3.
+    // (Because Part 3 images are now shown in the big header above).
     const showImageInCard = question.image && question.part !== 3;
-
-    // DEBUG: Part 1 data already includes A, B, C. 
-    // We only show the generated blue circle if the part is NOT 1.
-    const showGeneratedLetter = question.part !== 1;
 
     return `
         <div class="question-item">
@@ -177,26 +174,6 @@ function createStandardQuestion(question) {
                     const optionLetter = String.fromCharCode(65 + index);
                     return `
                         <div class="option" data-question-id="${question.id}" data-option="${optionLetter}">
-                            ${showGeneratedLetter ? `<span class="option-letter">${optionLetter}</span>` : ''}
-                            <span class="option-text">${option}</span>
-                        </div>
-                    `;
-                }).join('')}
-            </div>
-        </div>
-    `;
-}
-
-// Added missing helper for Part 4 to prevent render errors
-function createPart4Question(question) {
-    return `
-        <div class="question-item">
-            <div class="question-text">${question.id}.</div>
-            <div class="options">
-                ${question.options.map((option, index) => {
-                    const optionLetter = String.fromCharCode(65 + index);
-                    return `
-                        <div class="option" data-question-id="${question.id}" data-option="${optionLetter}">
                             <span class="option-letter">${optionLetter}</span>
                             <span class="option-text">${option}</span>
                         </div>
@@ -206,6 +183,7 @@ function createPart4Question(question) {
         </div>
     `;
 }
+
 
 function updateNavigationButtons() {
     const isFirstPart = currentPartIndex === 0;
