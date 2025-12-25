@@ -166,14 +166,10 @@ function showAllQuestions(questions) {
 }
 
 function createStandardQuestion(question) {
-    // Logic: Only show the image INSIDE the card if it exists AND it is NOT Part 3.
-    // (Because Part 3 images are now shown in the big header above).
-    const showImageInCard = question.image && question.part !== 3;
-
     return `
         <div class="question-item">
             <div class="question-text">${question.id}. ${question.question}</div>
-            ${showImageInCard ? `
+            ${question.image ? `
                 <div class="question-image">
                     <img src="${question.image}" alt="Question ${question.id} Image">
                 </div>
@@ -192,6 +188,7 @@ function createStandardQuestion(question) {
         </div>
     `;
 }
+
 function createPart4Question(question) {
     return `
         <div class="question-item">

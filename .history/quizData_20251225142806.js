@@ -369,47 +369,47 @@ const quizData = [
   {
     "id": 41,
     "part": 4,
-    "question": "",
+    "question": "我不上課的時候，只要有空就找工作做，所以（41）",
     "image": "",
     "options": ["我最喜歡的", "我還是願意", "那就更好了", "心情總是特別好", "心情總是特別壞", "有很多工作經驗"],
     "answer": "F",
-    "remark": ""
+    "remark": "Paragraph 2"
   },
   {
     "id": 42,
     "part": 4,
-    "question": "",
+    "question": "在這些工作裡，（42）",
     "image": "",
     "options": ["我最喜歡的", "我還是願意", "那就更好了", "心情總是特別好", "心情總是特別壞", "有很多工作經驗"],
     "answer": "A",
-    "remark": ""
+    "remark": "Paragraph 2"
   },
   {
     "id": 43,
     "part": 4,
-    "question": "",
+    "question": "工作的時候，（43）",
     "image": "",
     "options": ["我最喜歡的", "我還是願意", "那就更好了", "心情總是特別好", "心情總是特別壞", "有很多工作經驗"],
     "answer": "D",
-    "remark": ""
+    "remark": "Paragraph 2"
   },
   {
     "id": 44,
     "part": 4,
-    "question": "",
+    "question": "要是沒有那種奇怪的味道，（44）",
     "image": "",
     "options": ["我最喜歡的", "我還是願意", "那就更好了", "心情總是特別好", "心情總是特別壞", "有很多工作經驗"],
     "answer": "C",
-    "remark": ""
+    "remark": "Paragraph 2"
   },
   {
     "id": 45,
     "part": 4,
-    "question": "",
+    "question": "雖然有這樣的問題，（45）到書店工作。",
     "image": "",
     "options": ["我最喜歡的", "我還是願意", "那就更好了", "心情總是特別好", "心情總是特別壞", "有很多工作經驗"],
     "answer": "B",
-    "remark": ""
+    "remark": "Paragraph 2"
   },
 
   // Part 5: Reading Comprehension (46-50)

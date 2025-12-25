@@ -96,40 +96,7 @@ function showCurrentPart() {
 function showAllQuestions(questions) {
     let questionsHTML = '';
     
-    // Define the specific paragraphs for Part 4
-    const text36_40 = "我今天跟我的台灣朋友一起去百貨公司。台灣的百貨公司 ___（36）___ ，裡面 ___（37）___ 。我買了幾件毛衣，還有 ___（38） ___。我們 ___（39）___ ，就到 ___（40）___ ，雖然 有一點貴，但是大家還是吃得很開心。";
-    
-    const text41_45 = "我不上課的時候，只要有空就找工作做，所以___（41）___ 。 在這些工作裡， ___（42）___ 就是在書店工作。第一是因為我 很愛看書，第二是因為那裡的客人比較有禮貌，工作的時候， ___（43）___ 。可是我不太喜歡新書的味道，要是沒有那種奇 怪的味道，___（44）___ 。雖然有這樣的問題，___（45）___ 到 書店工作。";
-
     questions.forEach(question => {
-        // --- 1. INJECT CONTEXT (IMAGES/TEXT) BEFORE SPECIFIC QUESTIONS ---
-
-        // Part 3: Shared Image for 31-35 (Appears once above Q31)
-        if (question.id === 31) {
-            questionsHTML += `
-                <div class="context-container">
-                    <img src="images/31-35.png" alt="Reference for questions 31-35">
-                </div>`;
-        }
-        
-        // Part 4: Paragraph for 36-40 (Appears once above Q36)
-        if (question.id === 36) {
-            questionsHTML += `
-                <div class="context-container">
-                    <div class="reading-passage">${text36_40}</div>
-                </div>`;
-        }
-
-        // Part 4: Paragraph for 41-45 (Appears once above Q41)
-        if (question.id === 41) {
-            questionsHTML += `
-                <div class="context-container">
-                    <div class="reading-passage">${text41_45}</div>
-                </div>`;
-        }
-
-        // --- 2. RENDER THE QUESTION CARD ---
-        
         if (question.part === 4) {
             questionsHTML += createPart4Question(question);
         } else {
@@ -139,17 +106,21 @@ function showAllQuestions(questions) {
     
     questionContainer.innerHTML = questionsHTML;
     
-    // Add event listeners to all options (Standard Logic)
+    // Add event listeners to all options
     document.querySelectorAll('.option').forEach(option => {
         option.addEventListener('click', (e) => {
             const questionId = parseInt(e.currentTarget.dataset.questionId);
             const selectedOption = e.currentTarget.dataset.option;
             
+            // Remove selected class from all options for this question
             document.querySelectorAll(`.option[data-question-id="${questionId}"]`).forEach(opt => {
                 opt.classList.remove('selected');
             });
             
+            // Add selected class to clicked option
             e.currentTarget.classList.add('selected');
+            
+            // Store user answer
             userAnswers[questionId] = selectedOption;
         });
     });
@@ -166,14 +137,10 @@ function showAllQuestions(questions) {
 }
 
 function createStandardQuestion(question) {
-    // Logic: Only show the image INSIDE the card if it exists AND it is NOT Part 3.
-    // (Because Part 3 images are now shown in the big header above).
-    const showImageInCard = question.image && question.part !== 3;
-
     return `
         <div class="question-item">
             <div class="question-text">${question.id}. ${question.question}</div>
-            ${showImageInCard ? `
+            ${question.image ? `
                 <div class="question-image">
                     <img src="${question.image}" alt="Question ${question.id} Image">
                 </div>
@@ -192,6 +159,7 @@ function createStandardQuestion(question) {
         </div>
     `;
 }
+
 function createPart4Question(question) {
     return `
         <div class="question-item">
